@@ -1,32 +1,22 @@
-
-
-// User function Template for Java
-
 class Solution {
     public int getSecondLargest(int[] arr) {
-        // Code Here
-        if(arr.length<2)
-        return -1;
+        // code here
+        int largest =Integer.MIN_VALUE;
+        int second =Integer.MIN_VALUE;
         
-        
-        int max = Integer.MIN_VALUE;
-        int second_max = Integer.MIN_VALUE;
-        
-        for(int i=0;i<arr.length ;i++)
+        for(int i=0; i<arr.length;i++)
         {
-            if(arr[i]>max)
+            if(arr[i]>largest)
             {
-                second_max=max;
-                max=arr[i]; 
+                second = largest;
+                largest = arr[i];
             }
-            else if(arr[i]>second_max && arr[i]!=max)
+            else if(arr[i]>second && arr[i]!=largest)
             {
-                second_max=arr[i];
+                second = arr[i];
             }
-            
-            
         }
-        return (second_max==Integer.MIN_VALUE)? -1 : second_max;
+        return (second == Integer.MIN_VALUE)?-1:second;
+        
     }
-    
 }
