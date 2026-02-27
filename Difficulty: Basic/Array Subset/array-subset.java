@@ -2,23 +2,22 @@
 class Solution {
     public boolean isSubset(int a[], int b[]) {
         // Your code here
-        HashMap <Integer,Integer> sh= new HashMap <>();
-        
-        for(int i=0;i<a.length;i++)
+        HashMap <Integer, Integer> map = new HashMap<>();
+        for(int num : a)
         {
-            sh.put(a[i],sh.getOrDefault(a[i],0)+1);
+            map.put(num,map.getOrDefault(num,0)+1);
         }
-        
-        for(int i=0;i<b.length;i++)
+        for(int num : b)
         {
-            if(!sh.containsKey(b[i])||sh.get(b[i])==0)
+            if(!map.containsKey(num)|| map.get(num)==0)
             {
                 return false;
             }
-            sh.put(b[i],sh.get(b[i])-1);
-            
+            else
+            {
+                map.put(num,map.getOrDefault(num,0)-1);
+            }
         }
         return true;
-        
     }
 }
