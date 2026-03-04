@@ -1,19 +1,22 @@
 // User function Template for Java
 
 class Solution {
-    String removeDuplicates(String s) 
-    {
-        HashSet <Character> seen = new HashSet <>();
-        StringBuilder sb = new StringBuilder ();
+    String removeDuplicates(String s) {
         
-        for(char ch : s.toCharArray())
+        LinkedHashSet<Character> set = new LinkedHashSet<>();
+        
+        for(char ch:s.toCharArray())
         {
-            if(!seen.contains(ch))
-            {
-                seen.add(ch);
-                sb.append(ch);
-            }
+            set.add(ch);
         }
+        
+        StringBuilder sb = new StringBuilder();
+        
+        for(char ch: set)
+        {
+            sb.append(ch);
+        }
+        
         return sb.toString();
     }
 }
